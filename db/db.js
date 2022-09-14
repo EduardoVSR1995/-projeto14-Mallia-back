@@ -5,12 +5,13 @@ dotenv.config();
 
 
 export default async function mongodb(){
+    
     const mongoClient = new MongoClient(process.env.SERVER_URI);
 
     let db;
 
     try {
-        db = await mongoClient.db('');
+        db = await mongoClient.db('Mallia');
         return db;
     } catch (error) {
         return error;        
