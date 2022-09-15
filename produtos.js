@@ -3,84 +3,84 @@ products = [
         productName:"x",
         price:3200,
         descryption: "bolinha,bolinha,boinha",
-        image: 'https://imgur.com/a/WAzvvJT',
+        image: 'https://i.imgur.com/iICd88m.png',
 
     },
     {
         productName:"x",
         price:200,
         descryption: "bolinha,bolinha",
-        image: 'https://imgur.com/a/OGk7F4r',
+        image: 'https://i.imgur.com/joGPmij.png',
 
     },
     {
         productName:"x",
         price:200,
         descryption: "bolinha,bolinha",
-        image: 'https://imgur.com/a/2zO6g9N',
+        image: 'https://i.imgur.com/6xHaChH.png',
 
     },
     {
         productName:"x",
         price:200,
         descryption: "bolinha,bolinha",
-        image: 'https://imgur.com/a/eOGlwfu',
+        image: 'https://i.imgur.com/XibhsvL.png',
 
     },
     {
         productName:"x",
         price:200,
         descryption: "bolinha,bolinha",
-        image: 'https://imgur.com/a/xV3AQU7',
+        image: 'https://i.imgur.com/qyk6v0m.png',
 
     },
     {
         productName:"x",
         price:200,
         descryption: "bolinha,bolinha",
-        image: 'https://imgur.com/a/10kW52u',
+        image: 'https://i.imgur.com/mQnDj6X.png',
 
     },
     {
         productName:"x",
         price:200,
         descryption: "bolinha,bolinha",
-        image: 'https://imgur.com/a/eOGlwfu',
+        image: 'https://i.imgur.com/XibhsvL.png',
 
     },
     {
         productName:"x",
         price:200,
         descryption: "bolinha,bolinha",
-        image: 'https://imgur.com/a/WAzvvJT',
+        image: 'https://i.imgur.com/iICd88m.png',
 
     },
     {
         productName:"x",
         price:200,
         descryption: "bolinha,bolinha",
-        image: 'https://imgur.com/a/xV3AQU7',
+        image: 'https://i.imgur.com/qyk6v0m.png',
 
     },
     {
         productName:"x",
         price:200,
         descryption: "bolinha,bolinha",
-        image: 'https://imgur.com/a/xV3AQU7',
+        image: 'https://i.imgur.com/qyk6v0m.png',
 
     },
     {
         productName:"x",
         price:200,
         descryption: "bolinha,bolinha",
-        image: 'https://imgur.com/a/WAzvvJT',
+        image: 'https://i.imgur.com/iICd88m.png',
 
     },
     {
         productName:"x",
         price:200,
         descryption: "bolinha,bolinha",
-        image: 'https://imgur.com/a/eOGlwfu',
+        image: 'https://i.imgur.com/XibhsvL.png',
 
     }
 

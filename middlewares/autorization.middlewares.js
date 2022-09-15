@@ -5,8 +5,9 @@ const paramSchema =  joi.object({
 })
 
 function validHeader(req, res, next){
-    const authorization = {authorization: req.headers.authorization};
+    console.log(req.headers.authorization)
 
+    const authorization = {authorization: req.headers.authorization};
     const validate = paramSchema.validate(authorization)
 
     if(validate.error) {
