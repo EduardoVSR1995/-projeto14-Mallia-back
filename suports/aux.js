@@ -1,6 +1,4 @@
-import dbs from '../db/db.js'
-
-let db = await dbs()
+import db from '../database/db.js'
 
 async function finderList(local, obj){
     try {     
