@@ -35,6 +35,7 @@ async function signIn(req, res) {
                 token,
                 userId: user._id,
                 name: user.name,
+                email,
                 lastStatus: Date.now()
             };
 
