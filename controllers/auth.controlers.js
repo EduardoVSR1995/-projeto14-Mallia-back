@@ -63,6 +63,7 @@ async function signIn(req, res) {
 async function validToken(req, res) {
 
     const token = req.headers.authorization.replace('Bearer ', "");
+    console.log(token);            
 
     try {
 
@@ -70,7 +71,6 @@ async function validToken(req, res) {
 
         const user = await finder('sessions', {token: token})
     
-        console.log(user,token);            
         
         if(user)return res.send(user).status(201);
 

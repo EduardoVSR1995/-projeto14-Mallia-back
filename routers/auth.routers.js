@@ -13,6 +13,7 @@ authRouter.post(
 
 authRouter.post("/signIn", signIn);
 
-authRouter.get('/sessions', validHeader,validToken)
+authRouter.get('/sessions', validHeader, validToken)
+
 
 export default authRouter;
