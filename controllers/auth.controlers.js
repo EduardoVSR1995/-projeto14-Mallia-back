@@ -24,15 +24,18 @@ async function signUp(req, res) {
 
             const session = {
                 token,
-                email: email,
-                name: user.name,
+                email,
+                name,
                 lastStatus: Date.now()
             };
 
-            await db.collection("sessions").insertOne(session);
-            res.status(201).send(delete session.lastStatus);
+        await db.collection("sessions").insertOne(session);
+            
+            delete session.lastStatus;
+            
+            res.send(session).status(201);
         } catch (error) {
-       return res.status(500).send(error.message);
+       return res.send(error.message).status(500);
     };
 };
 
@@ -44,15 +47,17 @@ async function signIn(req, res) {
             const token = uuid();
 
             const session = {
-                token,
-                email: email,
-                name: user.name,
+                token: token,
                 email,
+                name: user.name,
                 lastStatus: Date.now()
             };
 
             await db.collection("sessions").insertOne(session);
-            res.status(201).send(delete session.lastStatus);
+            
+            delete session.lastStatus;
+
+            res.status(201).send(session);
         } else {
             res.status(401).send("Usuário não encontrado, login ou senha incorretos");
         };
@@ -63,16 +68,18 @@ async function signIn(req, res) {
 
 async function validToken(req, res) {
 
+    console.log("ola");            
+
     const token = req.headers.authorization.replace('Bearer ', "");
-    console.log(token);            
 
     try {
 
-        await upDat('sessions', {token: token}, {$set: {lastStatus: Date.now()}} )
+        const i = await upDat('sessions', {token: token}, {$set:{lastStatus: Date.now()}} )
 
         const user = await finder('sessions', {token: token})
-    
-        
+
+        delete user.lastStatus;
+
         if(user)return res.send(user).status(201);
 
         return res.sendStatus(401);        

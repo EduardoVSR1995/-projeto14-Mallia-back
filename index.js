@@ -1,8 +1,8 @@
 import productsRouter from './routers/products.routers.js'
+import salesRouter from './routers/sales.routers.js';
 import authRouter from './routers/auth.routers.js';
 import express from 'express';
 import cors from 'cors';
-import salesRouter from './routers/sales.routers.js';
 
 const server = express();
 

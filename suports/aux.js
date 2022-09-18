@@ -21,12 +21,38 @@ async function finder(local, obj){
 
 async function upDat(local, localizer, up){
     try {
-        const obj = await db.collection(local).findOne(localizer, up);
+        const obj = await db.collection(local).updateOne(localizer, up);
         return obj ;    
     } catch (error) {
         return error       
     }
 }
 
-export {finderList, finder, upDat };
+async function dell(local, localizer){
+    try {
+        const obj = await db.collection(local).deleteOne(localizer);
+        return obj ;    
+    } catch (error) {
+        return error       
+    }
+}
+
+
+async function timeDel(){
+    const time = Date.now();
+
+    try {
+        const list = await finderList('sessions', {})
+        console.log(list, 'timedel')
+        list.map(async(value)=>{if( Number(Date.now() - value.lastStatus) > 3600000 ) await dell('sessions', {_id: value._id}) })
+
+        
+    } catch (error) {
+        
+    }
+
+
+}
+
+export {finderList, finder, upDat, timeDel, dell };
 
