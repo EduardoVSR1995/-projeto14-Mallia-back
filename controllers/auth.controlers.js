@@ -22,18 +22,18 @@ async function signUp(req, res) {
 
         const token = uuid();
 
-            const session = {
-                token: token,
-                email,
-                name,
-                lastStatus: Date.now()
-            };
+        const session = {
+            token: token,
+            email,
+            name,
+            lastStatus: Date.now()
+        };
 
         await db.collection("sessions").insertOne(session);
             
-            delete session.lastStatus;
+        delete session.lastStatus;
             
-            res.send(session).status(201);
+        res.send(session).status(201);
         } catch (error) {
        return res.send(error.message).status(500);
     };
@@ -67,25 +67,22 @@ async function signIn(req, res) {
 };
 
 async function validToken(req, res) {
-
-    console.log("ola");            
-
     const token = req.headers.authorization.replace('Bearer ', "");
 
     try {
-
-        const i = await upDat('sessions', {token: token}, {$set:{lastStatus: Date.now()}} )
-
+        await upDat('sessions', {token: token}, {$set:{lastStatus: Date.now()}} )
+    
         const user = await finder('sessions', {token: token})
-
+    
         delete user.lastStatus;
 
         if(user)return res.send(user).status(201);
+    
+        return res.sendStatus(401);        
+
+    } catch (error) {
 
         return res.sendStatus(401);        
-        
-    } catch (error) {
-        return res.send(error).status(401);        
         
     }    
 }

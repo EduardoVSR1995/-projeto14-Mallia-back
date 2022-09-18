@@ -42,9 +42,12 @@ async function timeDel(){
     const time = Date.now();
 
     try {
+
         const list = await finderList('sessions', {})
-        console.log(list, 'timedel')
-        list.map(async(value)=>{if( Number(Date.now() - value.lastStatus) > 3600000 ) await dell('sessions', {_id: value._id}) })
+        
+        list.map(async(value)=>{if( Number(Date.now() - value.lastStatus) > 3600000 ){
+
+        await dell('sessions', {_id: value._id})} })
 
         
     } catch (error) {
