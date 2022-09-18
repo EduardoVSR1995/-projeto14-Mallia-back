@@ -41,7 +41,7 @@ async function getCartUser(req,res){
     const {userId} = await finder('sessions', {token:token});
     try {
 
-        const { cont , product}= await finder("cartUser", {userId});
+        const { cont , product}= await finder("cartUser", {userId:userId});
 
         res.send( {cont:cont,product:product }).status(200)
     } catch (error) {
