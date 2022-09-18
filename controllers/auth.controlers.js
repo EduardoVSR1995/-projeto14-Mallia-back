@@ -23,7 +23,7 @@ async function signUp(req, res) {
         const token = uuid();
 
             const session = {
-                token,
+                token: token,
                 email,
                 name,
                 lastStatus: Date.now()
