@@ -14,7 +14,7 @@ async function signUp(req, res) {
 
         const passwordHash = bcrypt.hashSync(password, 10);
 
-        await db.collection("users").insertOne({
+        const obj = await db.collection("users").insertOne({
             name,
             email,
             password: passwordHash
@@ -23,6 +23,7 @@ async function signUp(req, res) {
         const token = uuid();
 
         const session = {
+            userId: obj.insertedId,
             token: token,
             email,
             name,
@@ -32,6 +33,8 @@ async function signUp(req, res) {
         await db.collection("sessions").insertOne(session);
             
         delete session.lastStatus;
+        
+        delete session.userId;
             
         res.send(session).status(201);
         } catch (error) {
@@ -47,6 +50,7 @@ async function signIn(req, res) {
             const token = uuid();
 
             const session = {
+                userId: user._id,
                 token: token,
                 email,
                 name: user.name,
@@ -56,6 +60,8 @@ async function signIn(req, res) {
             await db.collection("sessions").insertOne(session);
             
             delete session.lastStatus;
+
+            delete session.userId;
 
             res.status(201).send(session);
         } else {

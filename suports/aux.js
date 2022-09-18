@@ -1,5 +1,15 @@
 import db from '../database/db.js'
 
+async function insert(local, obj){
+    try {     
+
+        const list = await db.collection(local).insertOne(obj);
+        return list;
+    } catch (error) {
+        return error
+    }
+}
+
 async function finderList(local, obj){
     try {     
 
@@ -57,5 +67,5 @@ async function timeDel(){
 
 }
 
-export {finderList, finder, upDat, timeDel, dell };
+export {finderList, finder, upDat, timeDel, dell, insert };
 
