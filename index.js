@@ -15,4 +15,4 @@ server.use(authRouter);
 
 server.use(salesRouter);
 
-server.listen(process.env.PORT, () => console.log("Listen on http://localhost:5000"))
+server.listen(process.env.PORT, () => console.log(`Listen on http://localhost:${process.env.PORT}`))
