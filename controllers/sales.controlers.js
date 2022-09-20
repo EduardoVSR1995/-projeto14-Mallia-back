@@ -1,7 +1,7 @@
 import db from "../database/db.js";
 import sgMail from '@sendgrid/mail';
 
-sgMail.setApiKey(process.env.SENDGRID_API_KEY)
+sgMail.setApiKey(SG.d_4TpdaAS0SR8f8k4Hz9_g._z_Y6CtTMAT4uYc_UX83ZcYMa2pub88t7TRFcWcQVbM)
 
 async function createSale(req, res) {
     const { products } = req.body;
