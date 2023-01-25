@@ -4,7 +4,6 @@ import express from 'express'
 
 const router = express.Router()
 
-
 router.get('/products',validHeader , getAllProducts);
 
 router.post('/cartUser', validHeader, postCartUser)

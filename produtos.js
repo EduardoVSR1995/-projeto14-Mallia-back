@@ -1,4 +1,4 @@
-products = [
+const products = [
     {
         "productName":"Genesis Top",
         "price":7000,
@@ -86,3 +86,5 @@ products = [
     }
 
 ]
+
+export default products;
